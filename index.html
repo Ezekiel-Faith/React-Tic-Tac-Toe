@@ -5,6 +5,23 @@
     <link rel="icon" type="image/svg+xml" href="/game-logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>React Tic-Tac-Toe</title>
+    <script>
+      function checkScreenSize() {
+        if (window.innerWidth < 768) {
+          document.body.innerHTML =
+            "<div id='screen-warning' style='display: flex; justify-content: center; align-items: center; height: 100vh; background: black; color: white; font-size: 20px;'>This site is best viewed on a larger screen.</div>";
+        } else {
+          const warning = document.getElementById('screen-warning');
+          if (warning) {
+            warning.remove(); // Remove the warning if screen is large
+            location.reload(); // Reload to restore site content
+          }
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', checkScreenSize);
+      window.addEventListener('resize', checkScreenSize);
+    </script>
   </head>
   <body>
     <header>
